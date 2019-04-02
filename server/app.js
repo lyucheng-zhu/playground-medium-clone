@@ -7,24 +7,24 @@ const bodyParser = require('body-parser')
 const helmet = require('helmet')
 const cloudinary = require('cloudinary')
 
+const {MONGODB_URL, CLOUDINARY_CLOUD_NAME, CLOUDINARY_API_KEY, CLOUDINARY_API_SECRET} = require('../customed-data')
+
 const app = express()
 const router = express.Router()
-const url = process.env.MONGODB_URI || "mongodb://localhost:27017/medium"
+const url = process.env.MONGODB_URI || MONGODB_URL
 
 /** configure cloudinary */
 cloudinary.config({
-    cloud_name: 'chidumennamdi',
-    api_key: '',
-    api_secret: ''
+    cloud_name: CLOUDINARY_CLOUD_NAME,
+    api_key: CLOUDINARY_API_KEY,
+    api_secret: CLOUDINARY_API_SECRET
 })
 
 /** connect to MongoDB datastore */
 try {
-    mongoose.connect(url, {
-        //useMongoClient: true
-    })    
+    mongoose.connect(url, { useNewUrlParser: true })
 } catch (error) {
-    
+
 }
 
 let port = 5000 || process.env.PORT
