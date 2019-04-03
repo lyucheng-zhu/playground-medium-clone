@@ -4,11 +4,11 @@ import './assets/medium.css';
 import { Provider } from 'react-redux';
 import * as serviceWorker from './serviceWorker';
 
-import { Switch, Route, BrowserRouter } from 'react-router-dom';
+import { Switch, Route, Router } from 'react-router-dom';
 
 import App from './App.js';
 
-import { store } from './redux/store';
+import { store, history } from './redux/store';
 
 import { getUser } from './redux/actions/actions'
 
@@ -27,11 +27,11 @@ if(localStorage.Auth) {
 
 ReactDOM.render((
     <Provider store={store}>
-        <BrowserRouter>
+        <Router history={history}>
             <Switch>
                 <Route path="/" component={App} />
             </Switch>
-        </BrowserRouter>
+        </Router>
     </Provider>
 ), document.getElementById('root'));
 

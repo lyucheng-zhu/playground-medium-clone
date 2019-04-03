@@ -3,8 +3,9 @@ import { composeWithDevTools } from 'redux-devtools-extension/developmentOnly';
 import reducer from './reducer';
 import thunk from 'redux-thunk'
 
-// Build the middleware for intercepting and dispatching navigation actions
-//const myRouterMiddleware = routerMiddleware(history);
+import { createBrowserHistory } from 'history';
+
+export const history = createBrowserHistory();
 
 export const store = createStore(
   reducer, composeWithDevTools(applyMiddleware(thunk)));

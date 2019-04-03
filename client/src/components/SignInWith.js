@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux'
 import GoogleLogin from 'react-google-login'
-import { 
+import {
     SignInUser,
     toggleClose,
     toggleOpen
@@ -25,7 +25,7 @@ class SignInWith extends Component {
         this.props.toggleClose()
     }
 
-        return ( 
+        return (
             <div>
                 <div data-behavior="overlay" className={this.props.modalMode === true ? 'overlay overlay-hugeinc open' : 'overlay overlay-hugeinc'}>
         <button onClick={this.props.toggleClose} data-behavior="close-overlay" type="button" className="overlay-close"><span className="glyphicon glyphicon-remove"></span></button>
@@ -35,7 +35,7 @@ class SignInWith extends Component {
 
                 <li className="omniauth-button google">
                     <GoogleLogin className="button google"
-                    clientId=""
+                    clientId="658977310896-knrl3gka66fldh83dao2rhgbblmd4un9.apps.googleusercontent.com"
                     onSuccess={responseGoogle}
                     onFailure={responseGoogle} >
                         <i className="fa fa-google"></i><span> SignIn with Google</span>

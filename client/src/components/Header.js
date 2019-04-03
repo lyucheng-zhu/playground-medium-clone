@@ -1,9 +1,11 @@
 import React, { Component } from 'react';
-import { connect } from 'react-redux'
+import { connect } from 'react-redux';
+
+import storiesLogo from "../assets/img/stories-logo.svg"
 
 class Header extends Component {
     render() {
-        return ( 
+        return (
             <div>
     <div data-react-className="UserOverlay" data-react-props="{}">
         <div className="overlay overlay-hugeinc " data-reactroot=""><button className="overlay-close"><span className="glyphicon glyphicon-remove"></span></button>
@@ -22,7 +24,7 @@ class Header extends Component {
         <div className="container-fluid col-md-10 col-md-offset-1">
             <div className="navbar-header">
                 <a className="navbar-brand" id="logo" href="/">
-                    <img alt="Stories" src="/assets/img/stories-logo.svg" height="40"/>
+                    <img alt="Stories" src={storiesLogo} height="40"/>
                 </a>
             </div>
             <ul className="nav navbar-nav filter-links">
@@ -46,7 +48,7 @@ const mapStateToProps = state => {
     return {
         user: state.authUser.user,
         isAuth: state.authUser.isAuth
-    }    
+    }
 }
 const mapDispatchToProps = dispatch => {
     return {
