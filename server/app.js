@@ -7,17 +7,17 @@ const bodyParser = require('body-parser')
 const helmet = require('helmet')
 const cloudinary = require('cloudinary')
 
-const {MONGODB_URL, CLOUDINARY_CLOUD_NAME, CLOUDINARY_API_KEY, CLOUDINARY_API_SECRET} = require('../customed-data')
-
 const app = express()
 const router = express.Router()
-const url = process.env.MONGODB_URI || MONGODB_URL
+
+const MONGODB_COLLECTION_NAME = "playground-medium-clone"
+const url = process.env.MONGODB_URL + MONGODB_COLLECTION_NAME;
 
 /** configure cloudinary */
 cloudinary.config({
-    cloud_name: CLOUDINARY_CLOUD_NAME,
-    api_key: CLOUDINARY_API_KEY,
-    api_secret: CLOUDINARY_API_SECRET
+    cloud_name: process.env.CLOUDINARY_CLOUD_NAME,
+    api_key: process.env.CLOUDINARY_API_KEY,
+    api_secret: process.env.CLOUDINARY_API_SECRET
 })
 
 /** connect to MongoDB datastore */

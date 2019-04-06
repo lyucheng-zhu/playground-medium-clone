@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux'
 import GoogleLogin from 'react-google-login'
+
 import {
     SignInUser,
     toggleClose,
@@ -35,10 +36,10 @@ class SignInWith extends Component {
 
                 <li className="omniauth-button google">
                     <GoogleLogin className="button google"
-                    clientId="658977310896-knrl3gka66fldh83dao2rhgbblmd4un9.apps.googleusercontent.com"
+                    clientId={process.env.GOOGLE_API_CLIENT_ID}
                     onSuccess={responseGoogle}
                     onFailure={responseGoogle} >
-                        <i className="fa fa-google"></i><span> SignIn with Google</span>
+                        <i className="fa fa-google"></i><span> SignIn with GitHub</span>
                     </GoogleLogin>
                 </li>
 
